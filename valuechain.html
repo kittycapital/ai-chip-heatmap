@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<title>AI/반도체 밸류체인 히트맵 | HerdVibe</title>
+<style>
+
+:root {
+    --bg:#000;--surface:#0a0a0a;--surface2:#111;--border:#1a1a1a;
+    --border-hover:#2a2a2a;--text:#e4e4e7;--text-dim:#71717a;--text-muted:#52525b;
+    --green:#22c55e;--red:#ef4444;--cyan:#22d3ee;
+    --mono:'JetBrains Mono',monospace;--sans:'Noto Sans KR',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scrollbar-width:none}html::-webkit-scrollbar{display:none}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);
+    min-height:100vh;-webkit-font-smoothing:antialiased}
+.container{max-width:960px;margin:0 auto;width:100%;padding:0 16px}
+.header{padding:24px 20px 12px;text-align:center}
+.header h1{font-size:clamp(18px,4vw,26px);font-weight:800;color:#fff;letter-spacing:-0.02em;margin-bottom:4px}
+.sub{font-size:12px;color:var(--text-dim)}
+.time{font-family:var(--mono);font-size:10px;color:var(--text-muted);margin-top:6px}
+
+/* Share buttons */
+.share-bar{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;padding:12px 0}
+.share-btn{display:inline-flex;align-items:center;gap:4px;
+    padding:5px 10px;border:1px solid var(--border);border-radius:6px;
+    background:var(--surface);color:var(--text-dim);font:500 11px var(--sans);
+    cursor:pointer;transition:all .2s;text-decoration:none}
+.share-btn:hover{border-color:var(--border-hover);color:var(--text);background:var(--surface2)}
+
+/* Sort controls */
+.sort-controls{display:flex;justify-content:center;gap:4px;padding:12px 0}
+.sort-btn{padding:5px 10px;border:1px solid var(--border);background:var(--surface);
+    color:var(--text-dim);font:500 11px var(--sans);cursor:pointer;border-radius:6px;transition:all .2s}
+.sort-btn.active{background:var(--cyan);color:#000;font-weight:600;border-color:var(--cyan)}
+
+/* Category header */
+.cat-row td{padding:8px 12px;font:600 11px var(--sans);color:var(--cyan);
+    letter-spacing:0.05em;border-bottom:1px solid var(--border)}
+
+/* Legend */
+.legend-bar{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 0 8px}
+.legend-gradient{width:200px;height:8px;border-radius:4px;
+    background:linear-gradient(to right,#dc2626,#7f1d1d,#1a1a1a,#14532d,#16a34a)}
+.legend-label{font:400 10px var(--mono);color:var(--text-muted)}
+
+/* Footer */
+.footer{padding:16px;text-align:center;font:400 10px var(--sans);color:var(--text-muted);border-top:1px solid var(--border);margin-top:12px}
+
+/* Toast */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);
+    background:#22d3ee;color:#000;padding:8px 20px;border-radius:8px;font:600 12px var(--sans);
+    opacity:0;transition:all .3s;z-index:999;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+
+.heatmap-table{width:100%;border-collapse:separate;border-spacing:3px}
+.heatmap-table th{font:600 11px var(--mono);color:var(--text-muted);padding:8px 4px;text-align:center}
+.heatmap-table th.stock-header{text-align:left;padding-left:12px;min-width:140px}
+.heatmap-table td{text-align:center;padding:0;border-radius:6px;height:42px;
+    transition:transform .15s,box-shadow .15s;position:relative}
+.heatmap-table td:hover{transform:scale(1.05);box-shadow:0 0 12px rgba(255,255,255,.08);z-index:2}
+.heatmap-table td.stock-cell{background:transparent;text-align:left;padding-left:12px}
+.heatmap-table td.stock-cell:hover{transform:none;box-shadow:none}
+.stock-name{display:flex;align-items:center;gap:8px}
+.stock-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.stock-label{font:500 12px var(--sans);color:var(--text);white-space:nowrap}
+.stock-ticker{font:400 12px var(--mono);color:var(--text-muted)}
+.cell-value{font:700 13px var(--mono);position:relative;z-index:1}
+
+@media(max-width:600px){
+    .heatmap-table th{font-size:9px;padding:6px 2px}
+    .heatmap-table th.stock-header{min-width:100px}
+    .stock-label{font-size:11px}
+    .stock-ticker{font-size:11px}
+    .cell-value{font-size:11px}
+    .heatmap-table td{height:38px}
+    .container{padding:0 8px}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>AI/반도체 밸류체인 히트맵</h1>
+    <div class="sub">공정별 22개 핵심 종목 · 기간별 수익률 한눈에 비교 (USD 기준)</div>
+    <div class="time">마지막 업데이트: 2026-02-27 14:30</div>
+</div>
+
+<div class="share-bar">
+    <a class="share-btn" href="https://twitter.com/intent/tweet?url=https://herdvibe.com/108&text=AI%2F%EB%B0%98%EB%8F%84%EC%B2%B4%20%EB%B0%B8%EB%A5%98%EC%B2%B4%EC%9D%B8%20%ED%8A%B8%EB%9E%98%EC%BB%A4" target="_blank" rel="noopener">𝕏 트위터</a>
+    <a class="share-btn" href="https://story.kakao.com/share?url=https://herdvibe.com/108" target="_blank" rel="noopener">● 카카오톡</a>
+    <a class="share-btn" href="https://t.me/share/url?url=https://herdvibe.com/108&text=AI%2F%EB%B0%98%EB%8F%84%EC%B2%B4%20%EB%B0%B8%EB%A5%98%EC%B2%B4%EC%9D%B8%20%ED%8A%B8%EB%9E%98%EC%BB%A4" target="_blank" rel="noopener">✈ 텔레그램</a>
+    <a class="share-btn" onclick="copyLink()" style="cursor:pointer">📋 인스타그램</a>
+    <a class="share-btn" onclick="copyLink()" style="cursor:pointer">🔗 링크복사</a>
+</div>
+
+<div class="container">
+    <div class="sort-controls">
+        <button class="sort-btn" data-sort="1W">1W 정렬</button>
+        <button class="sort-btn active" data-sort="1M">1M 정렬</button>
+        <button class="sort-btn" data-sort="3M">3M 정렬</button>
+        <button class="sort-btn" data-sort="YTD">YTD 정렬</button>
+        <button class="sort-btn" data-sort="12M">12M 정렬</button>
+    </div>
+
+    <table class="heatmap-table">
+        <thead>
+            <tr>
+                <th class="stock-header">종목</th>
+                <th>1W</th><th>1M</th><th>3M</th><th>YTD</th><th>12M</th>
+            </tr>
+        </thead>
+        <tbody id="heatmap-body"></tbody>
+    </table>
+
+    <div class="legend-bar">
+        <span class="legend-label">-30%</span>
+        <div class="legend-gradient"></div>
+        <span class="legend-label">+30%</span>
+    </div>
+</div>
+
+<div class="footer">
+    데이터 출처: Yahoo Finance · 한국 종목은 USD 환산 기준 · 투자 판단은 본인의 책임입니다
+</div>
+
+<div class="toast" id="toast">링크가 복사되었습니다</div>
+
+<script>
+
+function copyLink(){
+    var t='https://herdvibe.com/108';
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(function(){showToast()});
+    }else{
+        try{window.parent.postMessage({type:'clipboard',text:t},'*');showToast()}catch(e){}
+    }
+}
+function showToast(){
+    var el=document.getElementById('toast');el.classList.add('show');
+    setTimeout(function(){el.classList.remove('show')},2000);
+}
+
+
+const STOCKS = {"NVDA": {"ticker": "NVDA", "displayTicker": "NVDA", "name": "엔비디아", "category": "설계", "color": "#76b900", "currency": "USD", "currentPrice": 138.25, "performance": {"1W": 3.2, "1M": -4.8, "3M": 12.5, "YTD": -2.1, "12M": 45.3}}, "AMD": {"ticker": "AMD", "displayTicker": "AMD", "name": "AMD", "category": "설계", "color": "#ed1c24", "currency": "USD", "currentPrice": 112.5, "performance": {"1W": 1.8, "1M": -7.2, "3M": -5.3, "YTD": -8.4, "12M": -12.1}}, "AVGO": {"ticker": "AVGO", "displayTicker": "AVGO", "name": "브로드컴", "category": "설계", "color": "#cc0000", "currency": "USD", "currentPrice": 215.8, "performance": {"1W": 2.5, "1M": 5.1, "3M": 18.7, "YTD": 8.3, "12M": 62.4}}, "QCOM": {"ticker": "QCOM", "displayTicker": "QCOM", "name": "퀄컴", "category": "설계", "color": "#3253dc", "currency": "USD", "currentPrice": 168.9, "performance": {"1W": -0.3, "1M": -2.1, "3M": 4.5, "YTD": 1.2, "12M": 8.7}}, "ARM": {"ticker": "ARM", "displayTicker": "ARM", "name": "ARM홀딩스", "category": "설계", "color": "#0091bd", "currency": "USD", "currentPrice": 152.3, "performance": {"1W": 4.1, "1M": -1.5, "3M": 8.9, "YTD": 3.6, "12M": 78.2}}, "TSM": {"ticker": "TSM", "displayTicker": "TSM", "name": "TSMC", "category": "제조", "color": "#e30613", "currency": "USD", "currentPrice": 189.45, "performance": {"1W": 1.9, "1M": 3.4, "3M": 15.2, "YTD": 6.8, "12M": 52.1}}, "INTC": {"ticker": "INTC", "displayTicker": "INTC", "name": "인텔", "category": "제조", "color": "#0071c5", "currency": "USD", "currentPrice": 22.15, "performance": {"1W": -2.3, "1M": -8.5, "3M": -15.2, "YTD": -12.8, "12M": -35.6}}, "GFS": {"ticker": "GFS", "displayTicker": "GFS", "name": "글로벌파운드리", "category": "제조", "color": "#00a651", "currency": "USD", "currentPrice": 38.7, "performance": {"1W": 0.5, "1M": -3.2, "3M": -8.1, "YTD": -5.4, "12M": -18.3}}, "ASML": {"ticker": "ASML", "displayTicker": "ASML", "name": "ASML", "category": "장비", "color": "#0f238c", "currency": "USD", "currentPrice": 715.2, "performance": {"1W": 2.1, "1M": -2.8, "3M": 5.6, "YTD": 0.9, "12M": 12.4}}, "AMAT": {"ticker": "AMAT", "displayTicker": "AMAT", "name": "어플라이드", "category": "장비", "color": "#f37021", "currency": "USD", "currentPrice": 178.9, "performance": {"1W": 1.2, "1M": -1.5, "3M": 8.3, "YTD": 2.1, "12M": 18.7}}, "LRCX": {"ticker": "LRCX", "displayTicker": "LRCX", "name": "램리서치", "category": "장비", "color": "#003da5", "currency": "USD", "currentPrice": 82.5, "performance": {"1W": 0.8, "1M": -3.6, "3M": 4.2, "YTD": -1.3, "12M": 15.2}}, "KLAC": {"ticker": "KLAC", "displayTicker": "KLAC", "name": "KLA", "category": "장비", "color": "#6d2077", "currency": "USD", "currentPrice": 725.3, "performance": {"1W": 1.5, "1M": 2.3, "3M": 12.8, "YTD": 5.4, "12M": 28.9}}, "MU": {"ticker": "MU", "displayTicker": "MU", "name": "마이크론", "category": "메모리", "color": "#00b2e2", "currency": "USD", "currentPrice": 98.2, "performance": {"1W": -1.2, "1M": -9.8, "3M": -12.5, "YTD": -15.2, "12M": 5.3}}, "005930.KS": {"ticker": "005930.KS", "displayTicker": "삼성전자", "name": "삼성전자", "category": "메모리", "color": "#1428a0", "currency": "USD", "currentPrice": 42.85, "performance": {"1W": -0.8, "1M": -5.2, "3M": -8.7, "YTD": -10.3, "12M": -22.1}}, "000660.KS": {"ticker": "000660.KS", "displayTicker": "SK하이닉스", "name": "SK하이닉스", "category": "메모리", "color": "#e4002b", "currency": "USD", "currentPrice": 128.5, "performance": {"1W": 0.5, "1M": -6.8, "3M": -3.2, "YTD": -7.5, "12M": 18.4}}, "SMCI": {"ticker": "SMCI", "displayTicker": "SMCI", "name": "슈퍼마이크로", "category": "AI 인프라", "color": "#00539b", "currency": "USD", "currentPrice": 42.8, "performance": {"1W": -3.5, "1M": -18.2, "3M": -25.4, "YTD": -22.1, "12M": -52.3}}, "DELL": {"ticker": "DELL", "displayTicker": "DELL", "name": "델 테크놀로지", "category": "AI 인프라", "color": "#007db8", "currency": "USD", "currentPrice": 118.9, "performance": {"1W": 1.8, "1M": 5.2, "3M": 12.3, "YTD": 8.5, "12M": 35.7}}, "VRT": {"ticker": "VRT", "displayTicker": "VRT", "name": "버티브홀딩스", "category": "AI 인프라", "color": "#00843d", "currency": "USD", "currentPrice": 112.4, "performance": {"1W": 2.3, "1M": 8.5, "3M": 22.1, "YTD": 15.6, "12M": 95.2}}, "CRWV": {"ticker": "CRWV", "displayTicker": "CRWV", "name": "코어위브", "category": "AI 인프라", "color": "#ff6600", "currency": "USD", "currentPrice": 48.5, "performance": {"1W": 5.2, "1M": 12.3, "3M": 0.0, "YTD": 15.8, "12M": 0.0}}, "MSFT": {"ticker": "MSFT", "displayTicker": "MSFT", "name": "마이크로소프트", "category": "클라우드 & AI", "color": "#00a4ef", "currency": "USD", "currentPrice": 415.2, "performance": {"1W": 0.8, "1M": -2.1, "3M": 3.5, "YTD": 0.5, "12M": 12.8}}, "GOOGL": {"ticker": "GOOGL", "displayTicker": "GOOGL", "name": "알파벳", "category": "클라우드 & AI", "color": "#4285f4", "currency": "USD", "currentPrice": 178.5, "performance": {"1W": -0.5, "1M": -4.5, "3M": 8.2, "YTD": 2.8, "12M": 25.3}}, "AMZN": {"ticker": "AMZN", "displayTicker": "AMZN", "name": "아마존", "category": "클라우드 & AI", "color": "#ff9900", "currency": "USD", "currentPrice": 215.8, "performance": {"1W": 1.2, "1M": 3.8, "3M": 12.5, "YTD": 8.2, "12M": 32.1}}, "META": {"ticker": "META", "displayTicker": "META", "name": "메타", "category": "클라우드 & AI", "color": "#0668e1", "currency": "USD", "currentPrice": 625.4, "performance": {"1W": 2.1, "1M": 5.6, "3M": 18.3, "YTD": 12.5, "12M": 48.7}}};
+const CATEGORIES = ["설계", "제조", "장비", "메모리", "AI 인프라", "클라우드 & AI"];
+const periods = ['1W','1M','3M','YTD','12M'];
+let currentSort = '1M';
+
+function getColor(value) {
+    const clamped = Math.max(-30, Math.min(30, value));
+    const ratio = (clamped + 30) / 60;
+    if (ratio < 0.5) {
+        const t = ratio / 0.5;
+        return `rgb(${Math.round(220 - t*100)}, ${Math.round(38 + t*20)}, ${Math.round(38 + t*20)})`;
+    } else {
+        const t = (ratio - 0.5) / 0.5;
+        return `rgb(${Math.round(58 - t*36)}, ${Math.round(58 + t*105)}, ${Math.round(58 - t*20)})`;
+    }
+}
+
+function render() {
+    const tbody = document.getElementById('heatmap-body');
+    let html = '';
+
+    CATEGORIES.forEach(cat => {
+        // 해당 카테고리 종목 필터 + 정렬
+        const items = Object.entries(STOCKS)
+            .filter(([_, s]) => s.category === cat)
+            .sort((a, b) => b[1].performance[currentSort] - a[1].performance[currentSort]);
+
+        if (items.length === 0) return;
+
+        // 카테고리 헤더 행
+        html += `<tr class="cat-row"><td colspan="6">${cat}</td></tr>`;
+
+        items.forEach(([ticker, s]) => {
+            const cells = periods.map(p => {
+                const val = s.performance[p];
+                const bg = getColor(val);
+                const sign = val >= 0 ? '+' : '';
+                const alpha = Math.abs(val) > 10 ? 0.95 : Math.abs(val) > 4 ? 0.8 : 0.6;
+                return `<td style="background:${bg}"><span class="cell-value" style="color:rgba(255,255,255,${alpha})">${sign}${val.toFixed(1)}%</span></td>`;
+            }).join('');
+
+            html += `<tr>
+                <td class="stock-cell">
+                    <div class="stock-name">
+                        <div class="stock-dot" style="background:${s.color}"></div>
+                        <span class="stock-label">${s.name}</span>
+                        <span class="stock-ticker">${s.displayTicker}</span>
+                    </div>
+                </td>
+                ${cells}
+            </tr>`;
+        });
+    });
+
+    tbody.innerHTML = html;
+}
+
+document.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentSort = btn.dataset.sort;
+        render();
+    });
+});
+
+render();
+</script>
+</body>
+</html>
