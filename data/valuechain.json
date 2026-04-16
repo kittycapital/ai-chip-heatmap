@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-15 22:41",
+  "updated": "2026-04-16 22:39",
   "currency": "USD",
   "stocks": {
     "NVDA": {
@@ -9,13 +9,13 @@
       "category": "설계",
       "color": "#76b900",
       "currency": "USD",
-      "currentPrice": 198.87,
+      "currentPrice": 198.35,
       "performance": {
-        "1W": 9.22,
-        "1M": 8.54,
-        "3M": 7.03,
-        "YTD": 5.31,
-        "12M": 79.32
+        "1W": 7.85,
+        "1M": 9.03,
+        "3M": 8.31,
+        "YTD": 5.04,
+        "12M": 79.2
       }
     },
     "AMD": {
@@ -25,13 +25,13 @@
       "category": "설계",
       "color": "#ed1c24",
       "currency": "USD",
-      "currentPrice": 258.12,
+      "currentPrice": 278.26,
       "performance": {
-        "1W": 11.35,
-        "1M": 31.31,
-        "3M": 16.81,
-        "YTD": 15.51,
-        "12M": 176.36
+        "1W": 17.59,
+        "1M": 41.75,
+        "3M": 24.45,
+        "YTD": 24.52,
+        "12M": 194.46
       }
     },
     "AVGO": {
@@ -41,13 +41,13 @@
       "category": "설계",
       "color": "#cc0000",
       "currency": "USD",
-      "currentPrice": 396.72,
+      "currentPrice": 398.47,
       "performance": {
-        "1W": 13.14,
-        "1M": 22.35,
-        "3M": 12.11,
-        "YTD": 14.36,
-        "12M": 119.82
+        "1W": 12.27,
+        "1M": 24.27,
+        "3M": 17.48,
+        "YTD": 14.87,
+        "12M": 125.22
       }
     },
     "QCOM": {
@@ -57,13 +57,13 @@
       "category": "설계",
       "color": "#3253dc",
       "currency": "USD",
-      "currentPrice": 133.05,
+      "currentPrice": 134.47,
       "performance": {
-        "1W": 4.34,
-        "1M": 2.83,
-        "3M": -18.99,
-        "YTD": -22.59,
-        "12M": -2.21
+        "1W": 5.26,
+        "1M": 2.19,
+        "3M": -17.75,
+        "YTD": -21.76,
+        "12M": -1.13
       }
     },
     "ARM": {
@@ -73,13 +73,13 @@
       "category": "설계",
       "color": "#0091bd",
       "currency": "USD",
-      "currentPrice": 159.34,
+      "currentPrice": 162.33,
       "performance": {
-        "1W": 7.0,
-        "1M": 30.93,
-        "3M": 47.76,
-        "YTD": 38.88,
-        "12M": 53.23
+        "1W": 8.37,
+        "1M": 27.51,
+        "3M": 54.61,
+        "YTD": 41.49,
+        "12M": 54.51
       }
     },
     "TSM": {
@@ -89,13 +89,13 @@
       "category": "제조",
       "color": "#e30613",
       "currency": "USD",
-      "currentPrice": 375.1,
+      "currentPrice": 363.35,
       "performance": {
-        "1W": 2.51,
-        "1M": 10.56,
-        "3M": 13.57,
-        "YTD": 17.69,
-        "12M": 141.75
+        "1W": -0.59,
+        "1M": 5.02,
+        "3M": 11.39,
+        "YTD": 14.01,
+        "12M": 136.04
       }
     },
     "INTC": {
@@ -105,13 +105,13 @@
       "category": "제조",
       "color": "#0071c5",
       "currency": "USD",
-      "currentPrice": 64.94,
+      "currentPrice": 68.5,
       "performance": {
-        "1W": 10.16,
-        "1M": 41.91,
-        "3M": 37.32,
-        "YTD": 64.91,
-        "12M": 228.98
+        "1W": 10.99,
+        "1M": 55.47,
+        "3M": 40.6,
+        "YTD": 73.95,
+        "12M": 237.27
       }
     },
     "GFS": {
@@ -121,13 +121,13 @@
       "category": "제조",
       "color": "#00a651",
       "currency": "USD",
-      "currentPrice": 48.31,
+      "currentPrice": 50.39,
       "performance": {
-        "1W": 1.07,
-        "1M": 10.37,
-        "3M": 18.2,
-        "YTD": 31.03,
-        "12M": 44.94
+        "1W": 3.47,
+        "1M": 16.51,
+        "3M": 21.86,
+        "YTD": 36.67,
+        "12M": 49.7
       }
     },
     "ASML": {
@@ -137,13 +137,13 @@
       "category": "장비",
       "color": "#0f238c",
       "currency": "USD",
-      "currentPrice": 1481.77,
+      "currentPrice": 1410.83,
       "performance": {
-        "1W": 4.27,
-        "1M": 7.72,
-        "3M": 16.81,
-        "YTD": 27.49,
-        "12M": 123.49
+        "1W": -2.61,
+        "1M": 1.56,
+        "3M": 11.79,
+        "YTD": 21.39,
+        "12M": 111.51
       }
     },
     "AMAT": {
@@ -153,13 +153,13 @@
       "category": "장비",
       "color": "#f37021",
       "currency": "USD",
-      "currentPrice": 394.26,
+      "currentPrice": 389.9,
       "performance": {
-        "1W": 2.21,
-        "1M": 13.89,
-        "3M": 29.48,
-        "YTD": 46.82,
-        "12M": 174.45
+        "1W": -1.99,
+        "1M": 10.62,
+        "3M": 29.31,
+        "YTD": 45.2,
+        "12M": 172.18
       }
     },
     "LRCX": {
@@ -169,13 +169,13 @@
       "category": "장비",
       "color": "#003da5",
       "currency": "USD",
-      "currentPrice": 265.16,
+      "currentPrice": 260.96,
       "performance": {
-        "1W": 7.57,
-        "1M": 20.86,
-        "3M": 23.84,
-        "YTD": 43.45,
-        "12M": 295.83
+        "1W": 0.85,
+        "1M": 15.23,
+        "3M": 25.14,
+        "YTD": 41.18,
+        "12M": 287.37
       }
     },
     "KLAC": {
@@ -185,13 +185,13 @@
       "category": "장비",
       "color": "#6d2077",
       "currency": "USD",
-      "currentPrice": 1748.11,
+      "currentPrice": 1734.85,
       "performance": {
-        "1W": 4.53,
-        "1M": 21.55,
-        "3M": 21.4,
-        "YTD": 37.34,
-        "12M": 162.8
+        "1W": 0.44,
+        "1M": 17.11,
+        "3M": 21.09,
+        "YTD": 36.3,
+        "12M": 160.91
       }
     },
     "MU": {
@@ -201,13 +201,13 @@
       "category": "메모리",
       "color": "#00b2e2",
       "currency": "USD",
-      "currentPrice": 456.23,
+      "currentPrice": 457.23,
       "performance": {
-        "1W": 12.17,
-        "1M": 3.31,
-        "3M": 34.98,
-        "YTD": 44.7,
-        "12M": 557.54
+        "1W": 8.47,
+        "1M": -0.92,
+        "3M": 37.22,
+        "YTD": 45.02,
+        "12M": 545.35
       }
     },
     "005930.KS": {
@@ -217,13 +217,13 @@
       "category": "메모리",
       "color": "#1428a0",
       "currency": "USD",
-      "currentPrice": 143.05,
+      "currentPrice": 147.08,
       "performance": {
-        "1W": 1.88,
-        "1M": 9.84,
-        "3M": 49.98,
-        "YTD": 60.71,
-        "12M": 263.66
+        "1W": 6.53,
+        "1M": 4.74,
+        "3M": 56.58,
+        "YTD": 65.24,
+        "12M": 273.4
       }
     },
     "000660.KS": {
@@ -233,13 +233,13 @@
       "category": "메모리",
       "color": "#e4002b",
       "currency": "USD",
-      "currentPrice": 770.16,
+      "currentPrice": 781.03,
       "performance": {
-        "1W": 11.77,
-        "1M": 18.22,
-        "3M": 49.91,
-        "YTD": 64.53,
-        "12M": 478.81
+        "1W": 15.64,
+        "1M": 9.82,
+        "3M": 55.32,
+        "YTD": 66.86,
+        "12M": 483.52
       }
     },
     "SMCI": {
@@ -249,13 +249,13 @@
       "category": "AI 인프라",
       "color": "#00539b",
       "currency": "USD",
-      "currentPrice": 27.29,
+      "currentPrice": 28.4,
       "performance": {
-        "1W": 16.77,
-        "1M": -14.34,
-        "3M": -4.58,
-        "YTD": -11.85,
-        "12M": -17.68
+        "1W": 22.31,
+        "1M": -9.87,
+        "3M": 0.46,
+        "YTD": -8.27,
+        "12M": -14.25
       }
     },
     "DELL": {
@@ -265,13 +265,13 @@
       "category": "AI 인프라",
       "color": "#007db8",
       "currency": "USD",
-      "currentPrice": 177.28,
+      "currentPrice": 193.09,
       "performance": {
-        "1W": -4.42,
-        "1M": 13.25,
-        "3M": 48.8,
-        "YTD": 39.32,
-        "12M": 120.4
+        "1W": 6.41,
+        "1M": 26.19,
+        "3M": 63.4,
+        "YTD": 51.75,
+        "12M": 130.87
       }
     },
     "VRT": {
@@ -281,13 +281,13 @@
       "category": "AI 인프라",
       "color": "#00843d",
       "currency": "USD",
-      "currentPrice": 301.16,
+      "currentPrice": 294.13,
       "performance": {
-        "1W": 7.16,
-        "1M": 13.78,
-        "3M": 74.4,
-        "YTD": 71.53,
-        "12M": 333.17
+        "1W": 2.26,
+        "1M": 9.58,
+        "3M": 72.19,
+        "YTD": 67.53,
+        "12M": 311.48
       }
     },
     "CRWV": {
@@ -297,13 +297,13 @@
       "category": "AI 인프라",
       "color": "#ff6600",
       "currency": "USD",
-      "currentPrice": 118.69,
+      "currentPrice": 119.56,
       "performance": {
-        "1W": 33.51,
-        "1M": 38.24,
-        "3M": 35.68,
-        "YTD": 49.63,
-        "12M": 171.29
+        "1W": 29.96,
+        "1M": 45.59,
+        "3M": 33.14,
+        "YTD": 50.73,
+        "12M": 174.16
       }
     },
     "MSFT": {
@@ -313,13 +313,13 @@
       "category": "클라우드 & AI",
       "color": "#00a4ef",
       "currency": "USD",
-      "currentPrice": 411.22,
+      "currentPrice": 420.26,
       "performance": {
-        "1W": 9.85,
-        "1M": 2.82,
-        "3M": -12.43,
-        "YTD": -12.85,
-        "12M": 6.67
+        "1W": 12.65,
+        "1M": 5.22,
+        "3M": -8.31,
+        "YTD": -10.94,
+        "12M": 9.2
       }
     },
     "GOOGL": {
@@ -329,13 +329,13 @@
       "category": "클라우드 & AI",
       "color": "#4285f4",
       "currency": "USD",
-      "currentPrice": 337.12,
+      "currentPrice": 336.02,
       "performance": {
-        "1W": 6.24,
-        "1M": 10.33,
-        "3M": 0.41,
-        "YTD": 7.05,
-        "12M": 115.28
+        "1W": 5.5,
+        "1M": 8.07,
+        "3M": 0.12,
+        "YTD": 6.7,
+        "12M": 111.97
       }
     },
     "AMZN": {
@@ -345,13 +345,13 @@
       "category": "클라우드 & AI",
       "color": "#ff9900",
       "currency": "USD",
-      "currentPrice": 248.5,
+      "currentPrice": 249.7,
       "performance": {
-        "1W": 12.32,
-        "1M": 17.36,
-        "3M": 2.43,
-        "YTD": 9.71,
-        "12M": 34.42
+        "1W": 6.87,
+        "1M": 16.03,
+        "3M": 5.51,
+        "YTD": 10.24,
+        "12M": 37.11
       }
     },
     "META": {
@@ -361,13 +361,13 @@
       "category": "클라우드 & AI",
       "color": "#0668e1",
       "currency": "USD",
-      "currentPrice": 671.58,
+      "currentPrice": 676.87,
       "performance": {
-        "1W": 9.66,
-        "1M": 7.03,
-        "3M": 6.51,
-        "YTD": 3.34,
-        "12M": 23.94
+        "1W": 7.71,
+        "1M": 8.71,
+        "3M": 10.06,
+        "YTD": 4.16,
+        "12M": 27.75
       }
     }
   }
