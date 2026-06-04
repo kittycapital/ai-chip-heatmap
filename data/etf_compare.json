@@ -1,18 +1,18 @@
 {
-  "updated": "2026-06-03 22:45",
+  "updated": "2026-06-04 22:33",
   "etfs": {
     "SMH": {
       "ticker": "SMH",
       "name": "반도체 ETF",
       "desc": "VanEck Semiconductor",
       "color": "#3b82f6",
-      "currentPrice": 637.9,
+      "currentPrice": 627.53,
       "performance": {
-        "1W": 7.12,
-        "1M": 25.87,
-        "3M": 59.83,
-        "YTD": 70.88,
-        "12M": 163.0
+        "1W": 4.62,
+        "1M": 20.06,
+        "3M": 58.73,
+        "YTD": 68.1,
+        "12M": 153.02
       }
     },
     "SOXX": {
@@ -20,13 +20,13 @@
       "name": "반도체 ETF",
       "desc": "iShares Semiconductor",
       "color": "#6366f1",
-      "currentPrice": 615.68,
+      "currentPrice": 602.72,
       "performance": {
-        "1W": 9.17,
-        "1M": 33.25,
-        "3M": 80.38,
-        "YTD": 96.39,
-        "12M": 197.85
+        "1W": 5.84,
+        "1M": 24.86,
+        "3M": 78.56,
+        "YTD": 92.26,
+        "12M": 183.95
       }
     },
     "BOTZ": {
@@ -34,13 +34,13 @@
       "name": "로보틱스 & AI ETF",
       "desc": "Global X Robotics & AI",
       "color": "#10b981",
-      "currentPrice": 40.27,
+      "currentPrice": 40.08,
       "performance": {
-        "1W": 0.5,
-        "1M": 4.92,
-        "3M": 8.46,
-        "YTD": 9.7,
-        "12M": 30.91
+        "1W": -0.5,
+        "1M": 3.43,
+        "3M": 9.57,
+        "YTD": 9.18,
+        "12M": 28.92
       }
     },
     "AIQ": {
@@ -48,13 +48,13 @@
       "name": "AI ETF",
       "desc": "Global X AI & Tech",
       "color": "#f59e0b",
-      "currentPrice": 69.16,
+      "currentPrice": 68.07,
       "performance": {
-        "1W": 6.24,
-        "1M": 21.1,
-        "3M": 38.54,
-        "YTD": 34.47,
-        "12M": 70.14
+        "1W": 2.61,
+        "1M": 16.5,
+        "3M": 37.1,
+        "YTD": 32.35,
+        "12M": 66.52
       }
     },
     "IGV": {
@@ -62,13 +62,13 @@
       "name": "소프트웨어 ETF",
       "desc": "iShares Software",
       "color": "#ec4899",
-      "currentPrice": 100.2,
+      "currentPrice": 100.06,
       "performance": {
-        "1W": 7.68,
-        "1M": 13.3,
-        "3M": 16.99,
-        "YTD": -2.36,
-        "12M": -3.6
+        "1W": 4.58,
+        "1M": 13.36,
+        "3M": 14.2,
+        "YTD": -2.49,
+        "12M": -4.7
       }
     },
     "SKYY": {
@@ -76,13 +76,13 @@
       "name": "클라우드 ETF",
       "desc": "First Trust Cloud",
       "color": "#06b6d4",
-      "currentPrice": 147.74,
+      "currentPrice": 147.99,
       "performance": {
-        "1W": 11.66,
-        "1M": 16.66,
-        "3M": 32.4,
-        "YTD": 15.63,
-        "12M": 27.79
+        "1W": 9.61,
+        "1M": 13.59,
+        "3M": 30.39,
+        "YTD": 15.83,
+        "12M": 26.43
       }
     },
     "QQQ": {
@@ -90,13 +90,13 @@
       "name": "나스닥100 ETF",
       "desc": "Invesco QQQ (벤치마크)",
       "color": "#a855f7",
-      "currentPrice": 744.21,
+      "currentPrice": 740.61,
       "performance": {
-        "1W": 2.02,
-        "1M": 10.6,
-        "3M": 22.01,
-        "YTD": 21.53,
-        "12M": 42.93
+        "1W": 0.68,
+        "1M": 8.66,
+        "3M": 21.78,
+        "YTD": 20.95,
+        "12M": 41.13
       }
     },
     "SPY": {
@@ -104,13 +104,13 @@
       "name": "S&P500 ETF",
       "desc": "SPDR S&P 500 (벤치마크)",
       "color": "#71717a",
-      "currentPrice": 754.24,
+      "currentPrice": 757.09,
       "performance": {
-        "1W": 0.5,
-        "1M": 5.05,
-        "3M": 10.39,
-        "YTD": 10.7,
-        "12M": 28.71
+        "1W": 0.33,
+        "1M": 4.6,
+        "3M": 11.43,
+        "YTD": 11.12,
+        "12M": 28.47
       }
     }
   }
