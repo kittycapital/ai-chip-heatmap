@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-04 23:44",
+  "updated": "2026-09-07 23:59",
   "currency": "USD",
   "stocks": {
     "NVDA": {
@@ -41,7 +41,7 @@
       "category": "설계",
       "color": "#cc0000",
       "currency": "USD",
-      "currentPrice": 357.89,
+      "currentPrice": 357.9,
       "performance": {
         "1W": -2.95,
         "1M": -14.9,
@@ -217,13 +217,13 @@
       "category": "메모리",
       "color": "#1428a0",
       "currency": "USD",
-      "currentPrice": 189.82,
+      "currentPrice": 200.73,
       "performance": {
-        "1W": 1.96,
-        "1M": 10.22,
-        "3M": -11.45,
-        "YTD": 113.93,
-        "12M": 280.3
+        "1W": 6.32,
+        "1M": 23.76,
+        "3M": 5.71,
+        "YTD": 126.23,
+        "12M": 298.43
       }
     },
     "000660.KS": {
@@ -233,13 +233,13 @@
       "category": "메모리",
       "color": "#e4002b",
       "currency": "USD",
-      "currentPrice": 1223.63,
+      "currentPrice": 1325.59,
       "performance": {
-        "1W": 2.19,
-        "1M": 4.81,
-        "3M": -9.36,
-        "YTD": 161.51,
-        "12M": 600.74
+        "1W": 9.05,
+        "1M": 26.04,
+        "3M": 7.85,
+        "YTD": 183.3,
+        "12M": 642.42
       }
     },
     "SMCI": {
@@ -331,11 +331,11 @@
       "currency": "USD",
       "currentPrice": 338.46,
       "performance": {
-        "1W": -2.35,
-        "1M": -5.39,
-        "3M": -8.1,
-        "YTD": 7.54,
-        "12M": 46.12
+        "1W": -2.28,
+        "1M": -5.33,
+        "3M": -8.05,
+        "YTD": 7.61,
+        "12M": 46.21
       }
     },
     "AMZN": {
